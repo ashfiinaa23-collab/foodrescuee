@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Food Rescue connects food donors with people in need to eliminate hunger and reduce food waste. Donate surplus food or claim fresh meals easily.">
+  <title>FOOD RESCUE — Bridge Surplus Food to People in Need</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      
+      <!-- Brand Logo Left -->
+      <a href="#home" class="brand-logo-link" id="brandLogoLink" aria-label="Food Rescue Home">
+        <div class="logo-icon-wrapper">
+          <!-- Food / Heart / Leaf Line SVG Logo -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#EAF6E8" stroke="#FFFFFF" />
+            <path d="M12 7c-1.5 2.5-3 4-3 6a3 3 0 0 0 6 0c0-2-1.5-3.5-3-6z" fill="#3B8D3A" stroke="#164E36" />
+          </svg>
+        </div>
+        <div class="brand-name-group">
+          <span class="brand-title">FOOD RESCUE</span>
+          <span class="brand-tagline">Zero Waste • Nourish All</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu (Active underline in green) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links-list">
+          <li>
+            <a href="#home" class="nav-link" id="navHome">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#donate" class="nav-link" id="navDonate">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
+              Donate Food
+            </a>
+          </li>
+          <li>
+            <a href="#login" class="nav-link" id="navLogin">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              Login
+            </a>
+          </li>
+          <li>
+            <a href="#find" class="nav-link" id="navFind">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              Find Food
+            </a>
+          </li>
+        </ul>
+
+        <!-- Session Status Badge (updates dynamically) -->
+        <div class="header-actions">
+          <div id="navUserBadge" class="user-badge-nav" style="display: none;">
+            <span id="navUserName">Guest</span>
+            <button id="navLogoutBtn" title="Logout" style="background:none;border:none;cursor:pointer;color:var(--color-danger);font-weight:bold;margin-left:4px;">✕</button>
+          </div>
+          <a href="#find" class="btn btn-primary btn-sm" id="headerCtaBtn">Find Food</a>
+        </div>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <ul class="mobile-nav-list">
+        <li><a href="#home" class="mobile-nav-link" id="mNavHome">Home</a></li>
+        <li><a href="#donate" class="mobile-nav-link" id="mNavDonate">Donate Food</a></li>
+        <li><a href="#login" class="mobile-nav-link" id="mNavLogin">Login</a></li>
+        <li><a href="#find" class="mobile-nav-link" id="mNavFind">Find Food</a></li>
+      </ul>
+      <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+        <span id="mNavUserStatus" style="font-size:0.85rem; color:var(--color-text-muted);">Not logged in</span>
+        <button id="mResetBtn" class="btn btn-secondary btn-sm">Reset Demo Data</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN VIEW CONTAINER (PAGES)
+       ========================================================================== -->
+  <main class="main-content">
+
+    <!-- ========================================================================
+         PAGE 1: HOME
+         ======================================================================== -->
+    <section class="page-view" id="view-home">
+      
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="container hero-grid">
+          
+          <div class="hero-text-col">
+            <h1 class="hero-heading">
+              Rescue Food.<br>
+              Reduce Waste.<br>
+              <span class="highlight-green">Feed People.</span>
+            </h1>
+
+            <p class="hero-description">
+              Turn surplus food into meals for people in need.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#donate" class="btn btn-primary btn-lg" id="heroDonateBtn">
+                Donate Food
+              </a>
+              <a href="#find" class="btn btn-outline-green btn-lg" id="heroFindBtn">
+                Find Food
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Visual Column -->
+          <div class="hero-visual-wrapper">
+            <div class="hero-main-card">
+              <img 
+                src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80" 
+                alt="Volunteers sharing packed meal boxes with people in need" 
+                class="hero-image"
+                id="heroMainImage"
+              >
+              
+              <!-- Visual Message: Less Food Waste, More Smiles ♡ -->
+              <div class="hero-visual-message-card">
+                <div class="message-heart-icon">
+                  <svg viewBox="0 0 24 24" fill="#3B8D3A" width="22" height="22">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+                <div class="message-text-group">
+                  <span class="message-line-1">Less Food Waste</span>
+                  <span class="message-line-2">More Smiles ♡</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Impact Statistics (Light Green Section Below Hero) -->
+      <section class="impact-stats-section">
+        <div class="container">
+          <div class="impact-stats-grid">
+            
+            <div class="impact-stat-card">
+              <div class="impact-stat-icon">
+                <!-- Meals Rescued Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+              </div>
+              <div class="impact-stat-number">125+</div>
+              <div class="impact-stat-label">Meals Rescued</div>
+            </div>
+
+            <div class="impact-stat-card">
+              <div class="impact-stat-icon">
+                <!-- Food Saved (Weight / Scale) Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v18"></path>
+                  <path d="M6 8l6-5 6 5"></path>
+                  <path d="M3 13l3-5 3 5a3 3 0 0 1-6 0z"></path>
+                  <path d="M15 13l3-5 3 5a3 3 0 0 1-6 0z"></path>
+                </svg>
+              </div>
+              <div class="impact-stat-number">45 kg+</div>
+              <div class="impact-stat-label">Food Saved</div>
+            </div>
+
+            <div class="impact-stat-card">
+              <div class="impact-stat-icon">
+                <!-- Deliveries Completed Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <div class="impact-stat-number">32+</div>
+              <div class="impact-stat-label">Deliveries Completed</div>
+            </div>
+
+            <div class="impact-stat-card">
+              <div class="impact-stat-icon">
+                <!-- Active Volunteers Icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="impact-stat-number">18+</div>
+              <div class="impact-stat-label">Active Volunteers</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section (Three Elegant Cards 01, 02, 03) -->
+      <section class="how-it-works-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Simple & Transparent</span>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">
+              Three simple steps to bridge surplus food with community nutrition.
+            </p>
+          </div>
+
+          <div class="how-it-works-grid">
+            
+            <div class="how-it-works-card">
+              <div class="how-step-badge">01</div>
+              <h3>Donate</h3>
+              <p>Have surplus food? Post it on Food Rescue.</p>
+            </div>
+
+            <div class="how-it-works-card">
+              <div class="how-step-badge">02</div>
+              <h3>Find</h3>
+              <p>People in need can browse available food.</p>
+            </div>
+
+            <div class="how-it-works-card">
+              <div class="how-step-badge">03</div>
+              <h3>Claim</h3>
+              <p>Claim the food and collect it from the listed location.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Call To Action Section (Green/Light-Green Section) -->
+      <section class="cta-banner-section">
+        <div class="container">
+          <div class="cta-banner-box">
+            <div class="cta-banner-content">
+              <h2>Have extra food? Don't waste it.</h2>
+              <p>Your surplus can become someone's meal.</p>
+            </div>
+            <a href="#donate" class="btn btn-primary btn-lg">
+              Donate Food
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- ========================================================================
+         PAGE 2: DONATE FOOD (Modern Centered Form Card)
+         ======================================================================== -->
+    <section class="page-view" id="view-donate">
+      <div class="donate-food-page">
+        <div class="container">
+          
+          <div class="section-header">
+            <h1 class="section-title">Donate Surplus Food</h1>
+            <p class="section-subtitle">
+              Turn extra food into meals for people in need.
+            </p>
+          </div>
+
+          <!-- Centered Modern Form Card -->
+          <div class="donate-centered-wrapper">
+            <div class="donate-centered-card">
+              <form id="donationForm" novalidate>
+                
+                <!-- Food Information Fieldset -->
+                <fieldset class="form-fieldset">
+                  <legend class="fieldset-legend">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                      <line x1="6" y1="1" x2="6" y2="4"></line>
+                      <line x1="10" y1="1" x2="10" y2="4"></line>
+                      <line x1="14" y1="1" x2="14" y2="4"></line>
+                    </svg>
+                    Food Information
+                  </legend>
+
+                  <div class="form-group">
+                    <label for="foodNameInput" class="form-label">
+                      Food Name <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="foodNameInput" 
+                      class="form-input" 
+                      placeholder="e.g., Vegetable Biryani, Chapati & Curry, Fresh Bread" 
+                      required
+                    >
+                    <span class="field-error-msg" id="errFoodName">Please enter the food name.</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="foodDescriptionInput" class="form-label">
+                      Food Description <span class="required-mark">*</span>
+                    </label>
+                    <textarea 
+                      id="foodDescriptionInput" 
+                      class="form-textarea" 
+                      placeholder="Describe the meal ingredients, preparation details, and storage condition (e.g. freshly prepared, warm, sealed containers)..." 
+                      rows="3" 
+                      required
+                    ></textarea>
+                    <span class="field-error-msg" id="errFoodDescription">Please enter a food description.</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">
+                      Food Type <span class="required-mark">*</span>
+                    </label>
+                    <div class="food-type-toggle-group" id="foodTypeToggleGroup">
+                      <button type="button" class="food-type-btn active" data-type="Vegetarian" id="typeVegBtn">
+                        <span style="font-size:1.15rem;">🌱</span> Vegetarian
+                      </button>
+                      <button type="button" class="food-type-btn" data-type="Non-Vegetarian" id="typeNonVegBtn">
+                        <span style="font-size:1.15rem;">🍗</span> Non-Vegetarian
+                      </button>
+                    </div>
+                    <input type="hidden" id="selectedFoodType" value="Vegetarian">
+                  </div>
+
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="foodQuantityInput" class="form-label">
+                        Quantity <span class="required-mark">*</span>
+                      </label>
+                      <input 
+                        type="text" 
+                        id="foodQuantityInput" 
+                        class="form-input" 
+                        placeholder="e.g., 5 kg, 2 large trays, 10 packs" 
+                        required
+                      >
+                      <span class="field-error-msg" id="errFoodQuantity">Please specify quantity.</span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="foodMealsCountInput" class="form-label">
+                        Number of Meals <span class="required-mark">*</span>
+                      </label>
+                      <input 
+                        type="number" 
+                        id="foodMealsCountInput" 
+                        class="form-input" 
+                        placeholder="e.g., 20" 
+                        min="1"
+                        required
+                      >
+                      <span class="field-error-msg" id="errFoodMeals">Please enter estimated number of meals.</span>
+                    </div>
+                  </div>
+
+                  <!-- Optional Food Image Upload -->
+                  <div class="form-group">
+                    <label class="form-label">
+                      Food Image Upload <span style="font-weight:normal; color:var(--color-text-muted); font-size:0.8rem;">(Optional)</span>
+                    </label>
+
+                    <div class="image-upload-wrapper">
+                      <div class="image-upload-box" id="imageUploadBox">
+                        <input type="file" id="foodImageFileInput" accept="image/*" style="display:none;">
+                        <div class="upload-icon-circle">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                          </svg>
+                        </div>
+                        <div class="upload-prompt-text">Click to browse or drag & drop a photo</div>
+                        <div class="upload-prompt-sub">JPG, PNG, or WEBP (previewed & saved in browser)</div>
+                      </div>
+
+                      <div class="image-preview-container" id="imagePreviewContainer">
+                        <img id="imagePreviewElement" src="" alt="Food Preview" class="image-preview-img">
+                        <button type="button" class="remove-image-btn" id="removeImageBtn">✕ Remove Image</button>
+                      </div>
+
+                      <div class="quick-presets-label">Or choose a quick matching photo preset:</div>
+                      <div class="preset-thumbnails-row">
+                        <button type="button" class="preset-thumbnail-btn active" data-img="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80" title="Biryani / Rice">
+                          <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=150&q=80" alt="Biryani">
+                        </button>
+                        <button type="button" class="preset-thumbnail-btn" data-img="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80" title="Chapati & Curry">
+                          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=150&q=80" alt="Curry">
+                        </button>
+                        <button type="button" class="preset-thumbnail-btn" data-img="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" title="Fresh Bread">
+                          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=150&q=80" alt="Bread">
+                        </button>
+                        <button type="button" class="preset-thumbnail-btn" data-img="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80" title="Chicken Curry">
+                          <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=150&q=80" alt="Chicken Curry">
+                        </button>
+                        <button type="button" class="preset-thumbnail-btn" data-img="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" title="Dal & Rice">
+                          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=150&q=80" alt="Dal">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </fieldset>
+
+                <!-- Pickup Information Fieldset -->
+                <fieldset class="form-fieldset">
+                  <legend class="fieldset-legend">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Pickup Information
+                  </legend>
+
+                  <div class="form-group">
+                    <label for="pickupLocationInput" class="form-label">
+                      Pickup Location <span class="required-mark">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="pickupLocationInput" 
+                      class="form-input" 
+                      placeholder="e.g., Green Garden Banquet Hall, 5th Avenue, Downtown" 
+                      required
+                    >
+                    <span class="field-error-msg" id="errPickupLocation">Please enter the pickup location address.</span>
+                  </div>
+
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="pickupAvailableFromInput" class="form-label">
+                        Available From <span class="required-mark">*</span>
+                      </label>
+                      <input 
+                        type="text" 
+                        id="pickupAvailableFromInput" 
+                        class="form-input" 
+                        placeholder="e.g., 12:00 PM or Today, 1:30 PM" 
+                        required
+                      >
+                      <span class="field-error-msg" id="errAvailableFrom">Please specify when food is available from.</span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="pickupAvailableUntilInput" class="form-label">
+                        Available Until <span class="required-mark">*</span>
+                      </label>
+                      <input 
+                        type="text" 
+                        id="pickupAvailableUntilInput" 
+                        class="form-input" 
+                        placeholder="e.g., 8:00 PM or Today, 9:00 PM" 
+                        required
+                      >
+                      <span class="field-error-msg" id="errAvailableUntil">Please specify pickup deadline.</span>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Donor Information Fieldset -->
+                <fieldset class="form-fieldset">
+                  <legend class="fieldset-legend">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Donor Information
+                  </legend>
+
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="donorNameInput" class="form-label">
+                        Donor Name <span class="required-mark">*</span>
+                      </label>
+                      <input 
+                        type="text" 
+                        id="donorNameInput" 
+                        class="form-input" 
+                        placeholder="e.g., Ananya Sharma / Chef Rajesh" 
+                        required
+                      >
+                      <span class="field-error-msg" id="errDonorName">Please enter donor name.</span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="donorPhoneInput" class="form-label">
+                        Phone Number <span class="required-mark">*</span>
+                      </label>
+                      <input 
+                        type="tel" 
+                        id="donorPhoneInput" 
+                        class="form-input" 
+                        placeholder="e.g., +1 (555) 234-8901" 
+                        required
+                      >
+                      <span class="field-error-msg" id="errDonorPhone">Please enter contact phone number.</span>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <div style="margin-top: 1.5rem;">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" id="postDonationSubmitBtn">
+                    Post Food Donation
+                  </button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation Success Modal -->
+    <div class="donation-success-modal-overlay" id="donationSuccessModal">
+      <div class="donation-success-card">
+        <div class="donation-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2 class="donation-success-title">Food donation posted successfully!</h2>
+        <p class="donation-success-subtitle">Thank you for helping reduce food waste.</p>
+        <button type="button" class="btn btn-primary btn-block" id="goToFindFoodBtn">
+          View on Find Food Board
+        </button>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 3: LOGIN
+         ======================================================================== -->
+    <section class="page-view" id="view-login">
+      <div class="login-page">
+        <div class="container">
+          
+          <div class="login-card-container">
+
+            <!-- Login Form -->
+            <div id="loginFormContainer">
+
+              <!-- Header -->
+              <div class="login-header-group">
+                <div class="logo-icon-wrapper">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#EAF6E8" stroke="#FFFFFF" />
+                    <path d="M12 7c-1.5 2.5-3 4-3 6a3 3 0 0 0 6 0c0-2-1.5-3.5-3-6z" fill="#3B8D3A" stroke="#164E36" />
+                  </svg>
+                </div>
+                <h1 class="login-title">Welcome Back</h1>
+                <p class="login-subtitle">Login to continue with Food Rescue.</p>
+              </div>
+
+              <!-- Login Form -->
+              <form id="loginForm" novalidate>
+
+                <div class="form-group">
+                  <label for="loginEmailInput" class="form-label">Email Address</label>
+                  <input 
+                    type="email" 
+                    id="loginEmailInput" 
+                    class="form-input login-input" 
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="loginPasswordInput" class="form-label">Password</label>
+                  <input 
+                    type="password" 
+                    id="loginPasswordInput" 
+                    class="form-input login-input" 
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                  >
+                </div>
+
+                <div style="margin-top: 1.75rem;">
+                  <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitLoginBtn">
+                    Login
+                  </button>
+                </div>
+
+              </form>
+
+              <!-- Sign up link -->
+              <div class="login-signup-prompt">
+                <span>Don't have an account?</span>
+                <button type="button" class="login-signup-link" id="signupLinkBtn">Sign up</button>
+              </div>
+
+              <!-- Demo Accounts -->
+              <div class="quick-demo-accounts">
+                <div class="quick-demo-title">Demo Accounts — One Click Login</div>
+                <div class="quick-buttons-row">
+                  <button type="button" class="quick-btn" id="quickDonorBtn">
+                    🌱 Login as <strong>Chef Rajesh (Donor)</strong>
+                  </button>
+                  <button type="button" class="quick-btn" id="quickRecipientBtn">
+                    🤝 Login as <strong>Maya Lin (Recipient)</strong>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Logged In State -->
+            <div id="loggedInContainer" style="display: none;" class="user-logged-state">
+              <div class="user-logged-avatar" id="loggedUserAvatar">R</div>
+              <h2 class="user-logged-name" id="loggedUserName">Chef Rajesh</h2>
+              <span class="user-logged-role" id="loggedUserRole">Food Donor</span>
+              <p style="color:var(--color-text-muted); font-size:0.92rem; margin-bottom:1.75rem; max-width:340px; margin-left:auto; margin-right:auto;">
+                You are signed in. You can donate surplus food or find food available near you.
+              </p>
+              <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#donate" class="btn btn-primary" id="loggedDonateBtn">Donate Food</a>
+                <a href="#find" class="btn btn-outline-green" id="loggedFindBtn">Find Food</a>
+              </div>
+              <div style="margin-top: 1.5rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="logoutBtn">Sign Out</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PAGE 4: FIND FOOD
+         ======================================================================== -->
+    <section class="page-view" id="view-find">
+      <div class="find-food-page">
+        <div class="container">
+
+          <!-- Page Header -->
+          <div class="find-page-header">
+            <h1 class="find-page-title">Find Available Food</h1>
+            <p class="find-page-subtitle">Discover surplus food available near you.</p>
+          </div>
+
+          <!-- Search and Filters -->
+          <div class="find-search-filter-card">
+            <!-- Search bar -->
+            <div class="search-bar-row">
+              <div class="search-input-box">
+                <svg class="search-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input 
+                  type="text" 
+                  id="foodSearchInput" 
+                  class="search-bar-input" 
+                  placeholder="Search food..."
+                  aria-label="Search food"
+                >
+              </div>
+            </div>
+
+            <!-- Filters Row: Food Type, Location, Availability, Clear Filters -->
+            <div class="filters-controls-row">
+              
+              <!-- Filter: Food Type -->
+              <div class="filter-control-item">
+                <label for="filterFoodType" class="filter-control-label">Food Type</label>
+                <select id="filterFoodType" class="filter-select">
+                  <option value="ALL">All Food Types</option>
+                  <option value="Vegetarian">Vegetarian</option>
+                  <option value="Non-Vegetarian">Non-Vegetarian</option>
+                </select>
+              </div>
+
+              <!-- Filter: Location -->
+              <div class="filter-control-item">
+                <label for="filterLocation" class="filter-control-label">Location</label>
+                <select id="filterLocation" class="filter-select">
+                  <option value="ALL">All Locations</option>
+                </select>
+              </div>
+
+              <!-- Filter: Availability -->
+              <div class="filter-control-item">
+                <label for="filterAvailability" class="filter-control-label">Availability</label>
+                <select id="filterAvailability" class="filter-select">
+                  <option value="ALL">All Times</option>
+                  <option value="today">Available Today</option>
+                  <option value="urgent">Available in next 2 hrs</option>
+                </select>
+              </div>
+
+              <!-- Clear Filters Button -->
+              <div class="filter-action-item">
+                <button type="button" class="btn btn-outline-green btn-clear-filters" id="clearFiltersBtn">
+                  Clear Filters
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Active Results Summary Info -->
+          <div class="results-meta-bar">
+            <span id="findResultsSummary" class="results-meta-count">Loading available food...</span>
+          </div>
+
+          <!-- Food Cards Grid -->
+          <div class="food-grid" id="foodListingGrid">
+            <!-- Populated via JavaScript: Only status 'Available' -->
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PAGE 5: FOOD DETAILS
+         ======================================================================== -->
+    <section class="page-view" id="view-details">
+      <div class="food-details-page">
+        <div class="container">
+          
+          <!-- Back navigation -->
+          <div class="back-nav-bar">
+            <a href="#find" class="back-link" id="backToFindLink">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Back to Find Food
+            </a>
+          </div>
+
+          <!-- Two-column Layout -->
+          <div class="food-details-two-column" id="foodDetailsContent">
+            
+            <!-- Left: Large Food Image -->
+            <div class="details-column-left">
+              <div class="details-image-card">
+                <img id="detailImage" src="" alt="Food Image" class="details-large-image">
+                <span class="badge badge-food-type" id="detailTypeBadge">Vegetarian</span>
+              </div>
+            </div>
+
+            <!-- Right: Food Information & Claim Button -->
+            <div class="details-column-right">
+              
+              <!-- Food Name -->
+              <h1 class="details-food-name" id="detailFoodName">Food Name</h1>
+
+              <!-- Food Description -->
+              <p class="details-food-desc" id="detailFoodDesc">
+                Food description.
+              </p>
+
+              <!-- Metadata List -->
+              <div class="details-meta-list">
+                
+                <!-- Quantity: 20 meals available -->
+                <div class="details-meta-item">
+                  <div class="meta-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                      <line x1="3" y1="6" x2="21" y2="6"></line>
+                      <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                  </div>
+                  <div class="meta-item-content">
+                    <span class="meta-item-label">Quantity:</span>
+                    <strong class="meta-item-highlight" id="detailQuantityText">20 meals available</strong>
+                  </div>
+                </div>
+
+                <!-- Location: 📍 Pickup Location -->
+                <div class="details-meta-item">
+                  <div class="meta-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="meta-item-content">
+                    <span class="meta-item-label">Location:</span>
+                    <strong class="meta-item-highlight" id="detailLocationText">📍 Pickup Location</strong>
+                  </div>
+                </div>
+
+                <!-- Availability: Available until 7:00 PM -->
+                <div class="details-meta-item">
+                  <div class="meta-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
+                  <div class="meta-item-content">
+                    <span class="meta-item-label">Availability:</span>
+                    <strong class="meta-item-highlight" id="detailAvailabilityText">Available until 7:00 PM</strong>
+                  </div>
+                </div>
+
+                <!-- Donor: Donated by: Community Kitchen -->
+                <div class="details-meta-item">
+                  <div class="meta-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <div class="meta-item-content">
+                    <span class="meta-item-label">Donor:</span>
+                    <strong class="meta-item-highlight" id="detailDonorText">Donated by: Community Kitchen</strong>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Claim Button -->
+              <div class="details-claim-section">
+                <button type="button" class="btn btn-primary btn-claim-prominent" id="claimFoodBtn">
+                  Claim This Food
+                </button>
+                <div id="alreadyClaimedBox" class="already-claimed-notice" style="display:none;">
+                  ✓ This food donation has already been claimed.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PAGE 6: CLAIM CONFIRMATION
+         ======================================================================== -->
+    <section class="page-view" id="view-claim-confirmation">
+      <div class="claim-confirmation-page">
+        <div class="container">
+          
+          <div class="confirmation-card">
+            
+            <!-- Success Icon -->
+            <div class="confirmation-icon-success">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+
+            <!-- Heading -->
+            <h1 class="confirmation-title">Food Successfully Claimed!</h1>
+
+            <!-- Message -->
+            <p class="confirmation-subtitle">
+              Thank you for helping rescue food and reduce waste.
+            </p>
+
+            <!-- Claim Summary Card -->
+            <div class="confirm-details-summary">
+              <div class="confirm-item-row">
+                <span class="confirm-row-label">Food Name</span>
+                <strong class="confirm-row-value" id="confirmFoodName">Vegetable Biryani</strong>
+              </div>
+              <div class="confirm-item-row">
+                <span class="confirm-row-label">Quantity</span>
+                <strong class="confirm-row-value" id="confirmQuantity">20 meals</strong>
+              </div>
+              <div class="confirm-item-row">
+                <span class="confirm-row-label">Pickup Location</span>
+                <strong class="confirm-row-value" id="confirmLocation">Manjeri</strong>
+              </div>
+              <div class="confirm-item-row">
+                <span class="confirm-row-label">Pickup Time</span>
+                <strong class="confirm-row-value" id="confirmPickupTime">Available until 7:00 PM</strong>
+              </div>
+              <div class="confirm-item-row">
+                <span class="confirm-row-label">Donor Information</span>
+                <strong class="confirm-row-value" id="confirmDonorInfo">Community Kitchen</strong>
+              </div>
+            </div>
+
+            <!-- Collect food within pickup time notice -->
+            <div class="pickup-deadline-alert">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Please collect the food within the available pickup time.</span>
+            </div>
+
+            <!-- Back to Find Food Button -->
+            <div class="confirmation-actions-row">
+              <a href="#find" class="btn btn-primary btn-lg" id="backToFindBtn">
+                Back to Find Food
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       CONFIRM FOOD CLAIM MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="claimModal" role="dialog" aria-modal="true" aria-labelledby="claimModalTitle">
+    <div class="claim-confirm-modal-box">
+      
+      <div class="modal-confirm-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+
+      <h3 class="modal-confirm-title" id="claimModalTitle">Confirm Food Claim</h3>
+      
+      <p class="modal-confirm-message">
+        Are you sure you want to claim this food donation?
+      </p>
+
+      <div class="modal-food-item-badge" id="modalFoodSummary">
+        Vegetable Biryani (20 meals)
+      </div>
+
+      <div class="modal-confirm-buttons">
+        <button type="button" class="btn btn-primary btn-modal-confirm" id="confirmClaimBtn">
+          Confirm Claim
+        </button>
+        <button type="button" class="btn btn-secondary btn-modal-cancel" id="cancelClaimBtn">
+          Cancel
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       TOAST NOTIFICATION CONTAINER
+       ========================================================================== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-simple-card">
+        
+        <div class="footer-simple-logo-group">
+          <div class="logo-icon-wrapper" style="width: 36px; height: 36px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#EAF6E8" stroke="#FFFFFF" />
+              <path d="M12 7c-1.5 2.5-3 4-3 6a3 3 0 0 0 6 0c0-2-1.5-3.5-3-6z" fill="#3B8D3A" stroke="#164E36" />
+            </svg>
+          </div>
+          <span class="footer-simple-title">FOOD RESCUE</span>
+        </div>
+
+        <p class="footer-simple-tagline">Rescue Food. Reduce Waste. Feed People.</p>
+
+        <ul class="footer-simple-links">
+          <li><a href="#home" class="footer-simple-link">Home</a></li>
+          <li><a href="#donate" class="footer-simple-link">Donate Food</a></li>
+          <li><a href="#find" class="footer-simple-link">Find Food</a></li>
+          <li><a href="#login" class="footer-simple-link">Login</a></li>
+        </ul>
+
+        <div class="footer-simple-bottom">
+          <span>&copy; 2026 Food Rescue. All rights reserved.</span>
+          <button type="button" class="reset-demo-link" id="footerResetBtn">↺ Reset Demo Data</button>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
